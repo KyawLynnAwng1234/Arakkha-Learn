@@ -1,0 +1,179 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block main_content %}       
+            <!-- Dashboard Content Scrollable Window -->
+            <div class="content-body">
+
+                <!-- 4 Metrics Cards Row -->
+                <section class="metrics-grid">
+                    <div class="metric-card gold">
+                        <div class="card-info">
+                            <h2>သင်ခန်းစာ စုစုပေါင်း </h2>
+                            <h4>78</h4>
+                        </div>
+                        <i class="fa-solid fa-book card-icon"></i>
+                    </div>
+
+                    <div class="metric-card navy">
+                        <div class="card-info">
+                            <h2>အင်္ဂလိပ်စာ</h2>
+                            <h4>14,500</h4>
+                        </div>
+                        <i class="fa-solid fa-book card-icon"></i>
+                    </div>
+
+                    <div class="metric-card gold-light">
+                        <div class="card-info">
+                            <h2>သင်္ချာ</h2>
+                            <h4>1,200</h4>
+                        </div>
+                        <i class="fa-solid fa-book card-icon"></i>
+                    </div>
+
+                    <div class="metric-card blue-light">
+                        <div class="card-info">
+                            <h2>ရူပဗေဒ</h2>
+                            <h4>45</h4>
+                        </div>
+                        <i class="fa-solid fa-book card-icon"></i>
+                    </div>
+                </section>
+
+                <!-- Analytics Row: Charts Placeholders -->
+                <section class="analytics-grid">
+                    <div class="chart-card main-chart">
+                        <div class="chart-header">
+                            <h3>System Activity Over Time</h3>
+                            <select class="chart-dropdown">
+                                <option>All Students</option>
+                            </select>
+                        </div>
+                        <!-- In a real world app you'd render Chart.js / ApexCharts here -->
+                        <div class="chart-placeholder">
+                            <i class="fa-solid fa-chart-area placeholder-icon"></i>
+                            <p>Activity timeline visualization loading area...</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-card side-chart">
+                        <div class="chart-header">
+                            <h3>Institution Types</h3>
+                        </div>
+                        <div class="chart-placeholder">
+                            <i class="fa-solid fa-chart-pie placeholder-icon"></i>
+                            <p>Distribution Chart Breakdown</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Tables Row -->
+                <section class="data-grid">
+                    <!-- User Account Overview -->
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h3>User Account Overview</h3>
+                            <div class="table-actions">
+                                <div class="table-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" placeholder="Search">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Institution</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Centralized Education</td>
+                                        <td>Role</td>
+                                        <td><span class="status-badge processed">Processed</span></td>
+                                        <td class="action-icons">
+                                            <button class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
+                                            <button class="view-btn"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Centralized Education</td>
+                                        <td>Program staff</td>
+                                        <td><span class="status-badge processed">Processed</span></td>
+                                        <td class="action-icons">
+                                            <button class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
+                                            <button class="view-btn"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Centralized Education</td>
+                                        <td>Role</td>
+                                        <td><span class="status-badge processed">Processed</span></td>
+                                        <td class="action-icons">
+                                            <button class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
+                                            <button class="view-btn"><i class="fa-solid fa-eye"></i></button>
+                                            <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- System Audit Log -->
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h3>System Audit Log</h3>
+                            <select class="table-filter">
+                                <option>All filters</option>
+                            </select>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>Timestamp</th>
+                                        <th>IP</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Audit action</td>
+                                        <td class="time-stamp">2026-05-03 13:32</td>
+                                        <td>177.10.0.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Action</td>
+                                        <td class="time-stamp">2026-06-03 13:32</td>
+                                        <td>177.10.0.12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td>Action</td>
+                                        <td class="time-stamp">2026-06-03 13:32</td>
+                                        <td>172.10.0.1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+{% endblock %}
+
+    

@@ -1,0 +1,105 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block main_content %}
+<div class="base-breakout-wrapper">
+    <div class="detail-container-full">
+        
+        <nav class="detail-navigation-bar">
+            <a href="{% url 'home_page' %}" class="btn-back-home">
+                <i class="fa-solid fa-arrow-left"></i> Home သို့ပြန်သွားရန်
+            </a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">{{ lesson.course.title }}</span>
+        </nav>
+
+        <div class="detail-layout-grid">
+            
+            <main class="detail-primary-content">
+                
+                {% if lesson.video_material %}
+                <div class="detail-video-theater">
+                    <div class="video-theater-wrapper">
+                        <video controls preload="metadata" class="detail-main-streamer">
+                            <source src="{{ lesson.video_material.url }}" type="video/mp4">
+                            သင့် browser သည် ဗီဒီယိုကြည့်ရှုခြင်းကို မပံ့ပိုးပါ။
+                        </video>
+                    </div>
+                    
+                    <div class="theater-control-strip">
+                        <div class="theater-status">
+                            <i class="fa-solid fa-circle-play status-online-icon"></i>
+                            <span>တိုက်ရိုက်ကြည့်ရှုနေသည်</span>
+                        </div>
+                        <a href="{{ lesson.video_material.url }}" download class="btn-theater-download">
+                            <i class="fa-solid fa-download"></i> ဗီဒီယိုကိုဒေါင်းလုဒ်လုပ်ရန်
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <div class="detail-no-video-placeholder">
+                    <i class="fa-solid fa-clapperboard-question"></i>
+                    <p>ဤသင်ခန်းစာအတွက် ဗီဒီယိုဖိုင် မရှိပါ။</p>
+                </div>
+                {% endif %}
+
+                <div class="lesson-description-card">
+                    <span class="detail-course-tag">{{ lesson.course.title }}</span>
+                    <h1 class="detail-lesson-title">{{ lesson.title }}</h1>
+                    
+                    <div class="lesson-meta-info-strip">
+                        <span><i class="fa-regular fa-clock"></i> Updated Recently</span>
+                        <span><i class="fa-regular fa-file-lines"></i> 1 Learning Material</span>
+                    </div>
+                    
+                    <hr class="detail-divider">
+                    
+                    <h3 class="section-sub-title">သင်ခန်းစာအကြောင်းအရာ</h3>
+                    <p class="lesson-body-text">
+                        {% if lesson.description %}
+                            {{ lesson.description }}
+                        {% else %}
+                            ဤသင်ခန်းစာအတွက် အသေးစိတ်ဖော်ပြချက် မရှိသေးပါ။ သင်ခန်းစာဗီဒီယိုနှင့် ပူးတွဲဖိုင်များကို အသုံးပြု၍ လေ့လာနိုင်ပါသည်။
+                        {% endif %}
+                    </p>
+                </div>
+            </main>
+
+            <aside class="detail-secondary-sidebar">
+                
+                <div class="detail-widget-box resource-box">
+                    <h3 class="widget-sidebar-title"><i class="fa-solid fa-folder-open"></i> သင်ခန်းစာ ပူးတွဲဖိုင်များ</h3>
+                    
+                    {% if lesson.attachment %}
+                    <div class="detail-file-download-card">
+                        <div class="file-card-meta">
+                            <i class="fa-solid fa-file-pdf file-type-icon"></i>
+                            <div class="file-name-wrapper">
+                                <span class="file-title-label">စာပေပို့ချချက်ဖိုင်</span>
+                                <span class="file-raw-name">{{ lesson.attachment.name|cut:"lessons/attachments/" }}</span>
+                            </div>
+                        </div>
+                        <a href="{{ lesson.attachment.url }}" download class="btn-sidebar-file-action">
+                            <i class="fa-solid fa-arrow-down-to-line"></i> Download
+                        </a>
+                    </div>
+                    {% else %}
+                    <div class="empty-resource-state">
+                        <i class="fa-solid fa-box-open"></i>
+                        <span>ဒေါင်းလုဒ်ရယူရန် ပူးတွဲဖိုင်မရှိပါ။</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="detail-widget-box tips-box">
+                    <h3 class="widget-sidebar-title"><i class="fa-solid fa-lightbulb"></i> လေ့လာရန်အကြံပြုချက်</h3>
+                    <p class="tips-body-text">
+                        ဗီဒီယိုသင်ခန်းစာကို အစအဆုံး သေချာစွာကြည့်ရှုပြီး ပူးတွဲဖိုင်များကို ဒေါင်းလုဒ်ရယူကာ လေ့ကျင့်ခန်းများကို အတူတကွ ပူးတွဲလုပ်ဆောင်ပေးပါ။
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

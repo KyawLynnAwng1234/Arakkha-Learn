@@ -1,0 +1,86 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% block main_content %}
+<div class="content-body">
+    <h1 class="form-main-heading">သင်ခန်းစာအသစ်ထည့်ရန်</h1>
+    <form class="lesson-grid-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}    
+        <div class="form-left-panel">
+            <div class="form-input-group">
+                <label>ဘာသာရပ်ရွေးချယ်ရန်</label>
+                <div class="select-wrapper">
+                    <select name="course" required>
+                        <option value="" disabled selected>ဘာသာရပ်ရွီးချယ်ပါ</option>
+                        {% for course in courses %}
+                            <option value="{{ course.id }}">{{ course.title }}</option>
+                                                       
+                        {% endfor %}
+                     
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-input-group">
+                <label>သင်ခန်းစာခေါင်းစဉ်</label>
+                <input type="text" name="title" placeholder="သင်ခန်းစာခေါင်းစဉ်" required>
+            </div>
+            <div class="form-input-group">
+                <label>သင်ခန်းစာအကျဉ်းချုပ်</label>
+                <textarea rows="4" name="summary" placeholder="...သင်ခန်းစာအကျဉ်းချုပ်ရေးရန်..."></textarea>
+            </div>
+            <div class="form-input-group">
+                <label>သင်ခန်းစာအကြောင်းအရာ</label>
+                <div class="rich-text-editor">
+                    <div class="editor-toolbar">
+                        <button type="button" title="Bold"><i class="fa-solid fa-bold"></i></button>
+                        <button type="button" title="Italic"><i class="fa-solid fa-italic"></i></button>
+                        <button type="button" title="Strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
+                        <button type="button" title="Underline"><i class="fa-solid fa-underline"></i></button>
+                        <span class="toolbar-separator">|</span>
+                        <button type="button" title="Insert Link"><i class="fa-solid fa-link"></i></button>
+                        <button type="button" title="Bullet List"><i class="fa-solid fa-list-ul"></i></button>
+                        <button type="button" title="Numbered List"><i class="fa-solid fa-list-ol"></i></button>
+                        <button type="button" title="Align Left"><i class="fa-solid fa-align-left"></i></button>
+                        <button type="button" title="Insert Image"><i class="fa-solid fa-image"></i></button>
+                        <button type="button" title="Undo"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                    </div>
+                    <textarea name="content" placeholder="ဒီနေရာတွင် အကြောင်းအရာများ ရိုက်ထည့်ပါ..." required></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-right-panel">
+            <div class="upload-card">
+                <label class="upload-label">မီဒီယာတင်ရန်</label>
+                <label for="id_video_material" class="upload-dropzone" style="cursor: pointer;">
+                    <i class="fa-solid fa-video dropzone-icon"></i>
+
+                   <input type="file" id="id_video_material" name="video_material" accept="video/*" style="display: none;" onchange="updateFileName(this, 'video-filename')">
+
+                    <span class="btn-secondary-upload">မီဒီယာတင်ရန်</span>
+                    <span id="video-filename" style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">No
+                        file chosen</span>
+
+                    <div class="upload-progress-bar"><span></span></div>
+                </label>
+            </div>
+            <div class="upload-card">
+                <label class="upload-label">ဖိုင်တွဲများ</label>
+                <label for="id_attachment" class="upload-dropzone" style="cursor: pointer;">
+                    <i class="fa-solid fa-file-arrow-up dropzone-icon"></i>
+
+                    <input type="file" id="id_attachment" name="attachment" style="display: none;"
+                        onchange="updateFileName(this, 'file-filename')">
+
+                    <span class="btn-secondary-upload">ဖိုင်တင်ရန်</span>
+                    <span id="file-filename" style="font-size: 13px; color: var(--text-muted); margin-top: 5px;">No file
+                        chosen</span>
+                </label>
+            </div>
+            <button type="submit" class="btn-submit-lesson">
+                သင်ခန်းစာထည့်သွင်းရန်
+            </button>
+        </div>
+    </form>
+</div>
+</div>
+{% endblock %}

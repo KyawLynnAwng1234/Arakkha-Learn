@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Arakkha-Learn{% endblock %}</title>
+    <!-- Font Awesome for sleek modern dashboard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lesson.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css/' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    
+</head>
+
+<body>
+    {% block content %}
+    <div class="dashboard-wrapper">
+        {% include 'components/sidebar.html' %}
+        <main class="main-content">
+            {% include 'components/navbar.html' %}
+            <div class="content-body">
+                {% block main_content %}
+                <!-- Main content will be injected here by child templates -->
+                {% endblock %}
+            </div>
+    </div>
+    {% endblock %}
+    <!-- Optional JS to power interactive sidebar collapses -->
+    <script>
+        const toggleBtn = document.getElementById('toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+
+</html>

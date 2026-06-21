@@ -1,0 +1,177 @@
+
+.detail-container-full {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 24px 32px;
+    background-color: #F8FAFC;
+    box-sizing: border-box;
+}
+
+/* Breadcrumb Navigation */
+.detail-navigation-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.btn-back-home {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+.btn-back-home:hover { color: #0F2537; }
+.breadcrumb-separator { color: #CBD5E1; }
+.breadcrumb-current { font-size: 14px; color: #64748B; font-weight: 500; }
+
+/* Workspace Splitting Layout Grid */
+.detail-layout-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px; /* Standard wide screen column balance */
+    gap: 28px;
+    align-items: start;
+    width: 100% !important;
+}
+
+.detail-primary-content { width: 100%; min-width: 0; }
+.detail-secondary-sidebar { display: flex; flex-direction: column; gap: 24px; width: 360px; }
+
+/* 1. Video Theater Screen Components */
+.detail-video-theater {
+    background-color: #000000;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 24px;
+}
+.video-theater-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Perfect high-end theatrical framing */
+    background-color: #000000;
+}
+.detail-main-streamer {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+    object-fit: contain;
+}
+
+/* Control strip underneath theatre screen */
+.theater-control-strip {
+    background-color: #FFFFFF;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #F1F5F9;
+}
+.theater-status { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13.5px; color: #0F2537; }
+.status-online-icon { color: #22C55E; animation: pulse 2s infinite; }
+
+.btn-theater-download {
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #0F2537;
+    color: #FFFFFF;
+    padding: 8px 18px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+.btn-theater-download:hover { background-color: #D4AF37; }
+
+/* 2. Meta Information Card Box */
+.lesson-description-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.detail-course-tag {
+    background: #EFF6FF;
+    color: #1E40AF;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.detail-lesson-title { font-size: 24px; font-weight: 800; color: #0F2537; margin: 0 0 12px 0; }
+.lesson-meta-info-strip { display: flex; gap: 20px; font-size: 13px; color: #64748B; }
+.lesson-meta-info-strip i { margin-right: 4px; }
+.detail-divider { border: 0; border-top: 1px solid #E2E8F0; margin: 24px 0; }
+.section-sub-title { font-size: 16px; font-weight: 700; color: #0F2537; margin-0-0-12px-0: ; }
+.lesson-body-text { font-size: 15px; color: #334155; line-height: 1.7; margin: 0; }
+
+/* 3. Sidebar Downloader Widgets */
+.detail-widget-box { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 16px; padding: 24px; }
+.widget-sidebar-title { font-size: 14px; font-weight: 700; color: #0F2537; margin: 0 0 16px 0; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+.widget-sidebar-title i { color: #64748B; }
+
+.detail-file-download-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.file-card-meta { display: flex; align-items: center; gap: 12px; }
+.file-type-icon { font-size: 28px; color: #EF4444; }
+.file-name-wrapper { display: flex; flex-direction: column; min-width: 0; }
+.file-title-label { font-size: 13px; font-weight: 700; color: #1E293B; }
+.file-raw-name { font-size: 11px; color: #64748B; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.btn-sidebar-file-action {
+    text-decoration: none; font-size: 13px; font-weight: 700; color: #1E40AF;
+    background: #EFF6FF; border: 1px solid #DBEAFE; text-align: center;
+    padding: 10px; border-radius: 8px; display: block; transition: all 0.2s;
+}
+.btn-sidebar-file-action:hover { background: #1E40AF; color: #FFFFFF; border-color: #1E40AF; }
+
+.empty-resource-state { text-align: center; padding: 20px 0; color: #94A3B8; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
+.empty-resource-state i { font-size: 24px; }
+.tips-body-text { font-size: 13px; color: #475569; line-height: 1.6; margin: 0; }
+
+/* No Video Placeholder Banner */
+.detail-no-video-placeholder {
+    background: #EDF2F7; border: 2px dashed #CBD5E1; border-radius: 16px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    aspect-ratio: 16 / 9; color: #64748B; gap: 12px; margin-bottom: 24px;
+}
+.detail-no-video-placeholder i { font-size: 48px; color: #94A3B8; }
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1150px) {
+    .detail-layout-grid { grid-template-columns: 1fr !important; }
+    .detail-secondary-sidebar { width: 100%; }
+}
+@media (max-width: 600px) {
+    .detail-container-full { padding: 16px; }
+    .lesson-description-card { padding: 20px; }
+    .theater-control-strip { flex-direction: column; gap: 14px; align-items: flex-start; }
+    .btn-theater-download { width: 100%; justify-content: center; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}

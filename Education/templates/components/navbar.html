@@ -1,0 +1,25 @@
+{% load static %}
+<!-- Top Navigation Bar -->
+            <header class="top-navbar">
+                <div class="nav-left">
+                    <button id="toggle-sidebar" class="icon-btn"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
+                <div class="nav-right">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="icon-btn notification-btn">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge"></span>
+                    </button>
+                    <div class="user-profile">
+                        <img src="{% static 'images/profile.jpg' %}" alt="Admin Avatar" class="avatar">
+                        <div class="profile-text">
+                            <h4>User profile</h4>
+                            <span>Centralized Education</span>
+                        </div>
+                    </div>
+                </div>
+            </header>

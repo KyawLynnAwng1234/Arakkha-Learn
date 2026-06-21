@@ -1,0 +1,133 @@
+{% extends 'components/base.html' %}
+{% load static %}
+
+{% block main_content %}
+<div class="home-container-full">
+    <div class="main-layout-grid">
+        <div class="primary-content-area">
+            <div class="categories-row-grid">
+                <div class="category-card gold">
+                    <div class="cat-text">
+                        <h3>Primary Courses</h3>
+                    </div>
+                    <i class="fa-solid fa-book-open cat-icon"></i>
+                </div>
+                <div class="category-card navy">
+                    <div class="cat-text">
+                        <h3>Secondary Courses</h3>
+                    </div>
+                    <i class="fa-solid fa-users cat-icon"></i>
+                </div>
+                <div class="category-card yellow">
+                    <div class="cat-text">
+                        <h3>Vocational Training</h3>
+                    </div>
+                    <i class="fa-solid fa-screwdriver-wrench cat-icon"></i>
+                </div>
+                <div class="category-card blue">
+                    <div class="cat-text">
+                        <h3>Other Resources</h3>
+                    </div>
+                    <i class="fa-solid fa-folder-open cat-icon"></i>
+                </div>
+            </div>
+
+            <div class="section-filter-header">
+                <h3>Current Courses</h3>
+            </div>
+
+            <div class="courses-cards-grid">
+                {% for lesson in lessons %}
+                <div class="course-item-card">
+                    <div class="card-image-placeholder">
+                        <div class="card-thumb-bg">
+                            {% if lesson.image %}
+                            <img src="{{ lesson.image.url }}" alt="{{ lesson.title }}" class="lesson-image">
+                            {% else %}
+                            <i class="fa-solid fa-book-open"></i>
+                            {% endif %}
+                        </div>
+                        <span class="badge-subject">{{ lesson.course.title }}</span>
+                    </div>
+
+                    <div class="card-details-box">
+                        <h4 class="course-main-title">{{ lesson.title }}</h4>
+
+                        <div class="lesson-media-outputs">
+
+                            {% if lesson.video_material %}
+                            <div class="media-output-box video-box">
+                                <div class="media-info">
+                                    <i class="fa-solid fa-circle-play video-icon"></i>
+                                    <span>ဗီဒီယိုသင်ခန်းစာ</span>
+                                </div>
+                                <a href="{{ lesson.video_material.url }}" target="_blank" class="btn-media-action">
+                                    <i class="fa-solid fa-play"></i> Watch
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% if lesson.attachment %}
+                            <div class="media-output-box file-box">
+                                <div class="media-info">
+                                    <i class="fa-solid fa-file-arrow-down file-icon"></i>
+                                    <span>ပူးတွဲဖိုင်တွဲများ</span>
+                                </div>
+                                <a href="{{ lesson.attachment.url }}" download class="btn-media-action">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                            {% endif %}
+
+                            {% if not lesson.video_material and not lesson.attachment %}
+                            <span class="no-media-text">မီဒီယာဖိုင်များ မရှိပါ။</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="card-action-footer-row">
+                            <a href="{% url 'detail_page' lesson.id %}" class="btn-learn-now">လေ့လာရန် <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="empty-lessons-container">
+                    <i class="fa-regular fa-folder-open"></i>
+                    <h4>သင်ခန်းစာများ မရှိသေးပါ</h4>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <aside class="secondary-widget-sidebar">
+            <div class="widget-card-box">
+                <h3 class="widget-heading">⭐ Top Performers</h3>
+                <div class="performer-row">
+                    <div class="profile-avatar">
+                        <img src="{% static 'images/profile.jpg' %}" alt="User">
+                    </div>
+
+                    <div class="performer-meta">
+                        <strong>Aung Lin</strong>
+                        <span>11,950 points</span>
+                    </div>
+
+                    <span class="rank-badge gold">1</span>
+                </div>
+            </div>
+
+            <div class="widget-card-box activity-margin">
+                <h3 class="widget-heading">📈 Recent Activity Feed</h3>
+                <div class="activity-row">
+                    <i class="fa-solid fa-circle-check check-icon"></i>
+                    <div class="activity-meta">
+                        <p><strong>Aung Lin</strong> completed Math Unit 4</p>
+                        <span>2 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+{% endblock %}

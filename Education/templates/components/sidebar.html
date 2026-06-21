@@ -1,0 +1,41 @@
+{% load static %}
+<aside class="sidebar">
+    <div class="sidebar-brand">
+        <img src="{% static 'images/logo1.png' %}" alt="Logo" class="sidebar-logo">
+        <div class="brand-info">
+            <h2>Arakkha Learn</h2>
+            <span>CENTRALIZED EDUCATION</span>
+        </div>
+    </div>
+    <nav class="sidebar-menu">
+        <a href="{% url 'dashboard_page' %}" class="menu-item active">
+            <i class="fa-solid fa-chart-pie"></i> Dashboard
+        </a>
+        <div class="menu-dropdown">
+            <a href="{% url 'lesson_page' %}" class="menu-item">
+                <i class="fa-solid fa-plus"></i>
+                <span>သင်ခန်းစာအသစ်တင်ရန်</span>
+            </a>
+        </div>
+         <div class="menu-dropdown">
+            <a href="{% url 'home_page' %}" class="menu-item">
+                <i class="fa-solid fa-book-open"></i>
+                <span>သင်ခန်းစာများ</span>
+            </a>
+        </div>
+        <a href="#" class="menu-item">
+            <i class="fa-solid fa-chart-line"></i> Reports
+        </a>
+        <div class="menu-dropdown">
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-gear"></i> System Settings <i class="fa-solid fa-chevron-down arrow"></i>
+            </a>
+        </div>
+        <div class="sidebar-logout-container">
+            <hr class="sidebar-divider">
+            <a href="{% url 'logout_page' %}" class="menu-item logout-item">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </a>
+        </div>
+    </nav>
+</aside>

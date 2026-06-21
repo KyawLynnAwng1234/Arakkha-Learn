@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Centralized Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo-header">
+            <img src="{% static 'images/logo1.png' %}" alt="Centralized Education Logo" class="logo-img">
+        </div>
+        <form class="login-form" method="POST" action="{% url 'login_page' %}">
+            {% csrf_token %}    
+            <div class="form-group">
+                <label for="username">အသုံးပြုရေလူ နာမေ (USER NAME)</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" id="username" name="username" placeholder="နာမေရိုက်ထည့်ပါ" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">စကားဝှက်(PASSWORD)</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <input type="password" id="password" name="password" placeholder="စကားဝှက်ထည့်ပါ" required>
+                    <i class="fa-regular fa-eye-slash toggle-password" id="togglePassword"></i>
+                </div>
+            </div>
+            <div class="form-options">
+                <label class="remember-me">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    မှတ်သားထားပါ
+                </label>
+                <a href="#" class="forgot-link">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                လော့ဂ်အင် <span class="en-text">SIGN IN</span>
+            </button>
+
+            <div class="divider"><span>OR</span></div>
+
+            <button type="button" class="btn-google">
+                <img src="{% static 'images/google.jpg' %}" alt="Google Icon" width="18">
+                Sign in with Google
+            </button>
+        </form>
+
+        <div class="form-footer">
+            Don't have an account?<a href="#">Create Account</a>
+        </div>
+    </div>
+    <script src="{% static 'javascript/script.js' %}"></script>
+</body>
+</html>
