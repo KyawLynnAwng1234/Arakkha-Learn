@@ -118,3 +118,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 #media files settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Maximum size for the whole request (100 MB)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
+
+# Maximum size for a single uploaded file (100 MB)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 104857600
