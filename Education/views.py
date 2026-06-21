@@ -51,7 +51,7 @@ def login_view(request):
             return redirect("dashboard_page")
         return render(
             request,
-            "login.html",
+            "login/login.html",
             {
                 "error":"Invalid username or password."
             }
