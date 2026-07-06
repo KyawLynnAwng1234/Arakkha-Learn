@@ -11,13 +11,15 @@
         <a href="{% url 'dashboard_page' %}" class="menu-item active">
             <i class="fa-solid fa-chart-pie"></i> Dashboard
         </a>
+        {% if user.is_authenticated  and user.role == 'TEACHER' %}
         <div class="menu-dropdown">
             <a href="{% url 'lesson_page' %}" class="menu-item">
                 <i class="fa-solid fa-plus"></i>
                 <span>သင်ခန်းစာအသစ်တင်ရန်</span>
             </a>
         </div>
-         <div class="menu-dropdown">
+        {% endif %}
+                <div class="menu-dropdown">
             <a href="{% url 'home_page' %}" class="menu-item">
                 <i class="fa-solid fa-book-open"></i>
                 <span>သင်ခန်းစာများ</span>

@@ -32,8 +32,41 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #custome app
     'Education',
+    'Accounts',
+
+    #external package
+     "django_ckeditor_5",
+
 ]
+
+#ckeditor
+CKEDITOR_5_CONFIGS = {
+    "default": {
+        "toolbar": [
+            "heading",
+            "|",
+            "bold",
+            "italic",
+            "link",
+            "bulletedList",
+            "numberedList",
+            "blockQuote",
+            "insertTable",
+            "uploadImage",
+            "undo",
+            "redo",
+        ],
+        "image": {
+            "toolbar": [
+                "imageTextAlternative",
+                "imageStyle:full",
+                "imageStyle:side",
+            ]
+        },
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -46,9 +79,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 ROOT_URLCONF = 'Base.urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -101,11 +132,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
@@ -124,3 +152,12 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600
 
 # Maximum size for a single uploaded file (100 MB)
 FILE_UPLOAD_MAX_MEMORY_SIZE = 104857600
+
+#custom user model
+AUTH_USER_MODEL = 'Accounts.User'
+
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "dashboard_page"
+LOGOUT_REDIRECT_URL = "login"
+

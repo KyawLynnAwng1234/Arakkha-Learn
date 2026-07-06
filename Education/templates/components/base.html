@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +9,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css/' %}">
     <link rel="stylesheet" href="{% static 'css/lesson.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/detail.css' %}">
-    
 </head>
+<!-- messages -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const alerts = document.querySelectorAll(".alert");
+        alerts.forEach(function (alert) {
+            setTimeout(function () {
+                alert.style.transition = "all .5s";
+                alert.style.opacity = "0";
+                alert.style.transform = "translateY(-15px)";
+                setTimeout(function () {
+                    alert.remove();
+                }, 500);
+            }, 5000);
+        });
+    });
+    </script>
+    <!-- end messages -->
 <body>
     {% block content %}
     <div class="dashboard-wrapper">
@@ -37,6 +52,12 @@
         toggleBtn.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
         });
+        // messages 
+        document.querySelectorAll(".alert-close").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+            this.parentElement.remove();});
+        });
+        // end messages
     </script>
 </body>
 

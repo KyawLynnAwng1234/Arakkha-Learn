@@ -1,0 +1,299 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#edf4ff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+/* Background */
+
+.background-shape{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:rgba(37,99,235,.08);
+
+}
+
+.shape1{
+
+    width:450px;
+    height:450px;
+
+    top:-180px;
+    left:-180px;
+
+}
+
+.shape2{
+
+    width:500px;
+    height:500px;
+
+    right:-200px;
+    bottom:-220px;
+
+}
+
+/* Card */
+
+.card{
+
+    width:480px;
+
+    background:#fff;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.08);
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+/* Logo */
+
+.logo{
+
+    width:80px;
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#eff6ff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+
+h1{
+
+    font-size:42px;
+
+    color:#12284c;
+
+}
+
+.subtitle{
+
+    color:#7b8798;
+
+    margin-top:8px;
+
+    margin-bottom:25px;
+
+}
+
+/* Divider */
+
+.divider{
+
+    display:flex;
+    align-items:center;
+
+    margin:25px 0;
+
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#e5e7eb;
+
+}
+
+.divider span{
+
+    padding:0 15px;
+
+    color:#3b82f6;
+
+}
+
+/* Heading */
+
+h2{
+
+    color:#1e293b;
+
+    margin-bottom:15px;
+
+}
+
+.description{
+
+    color:#64748b;
+
+    line-height:1.6;
+
+    margin-bottom:30px;
+
+}
+
+/* Form */
+
+label{
+
+    display:block;
+
+    text-align:left;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+.input-group{
+
+    display:flex;
+
+    align-items:center;
+
+    border:2px solid #dbeafe;
+
+    border-radius:12px;
+
+    padding:0 15px;
+
+    margin-bottom:20px;
+
+}
+
+.icon{
+
+    font-size:20px;
+
+    color:#3b82f6;
+
+}
+
+.input-group input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:16px;
+
+    font-size:15px;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+button{
+
+    width:100%;
+
+    border:none;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    background:#B8901C;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+/* Error */
+
+.error{
+
+    color:#dc2626;
+
+    margin-bottom:15px;
+
+}
+
+/* Footer */
+
+.footer{
+
+    margin-top:35px;
+
+    padding-top:20px;
+
+    border-top:1px solid #e5e7eb;
+
+    color:#64748b;
+
+    font-size:14px;
+
+}
+
+.login-link{
+    margin-top:20px;
+    text-align:center;
+    color:#64748b;
+    font-size:15px;
+}
+
+.login-link a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.login-link a:hover{
+    color:#1d4ed8;
+    text-decoration:underline;
+}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS Portal | Invitation Code</title>
+    <link rel="stylesheet" href="{% static 'css/code.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="background-shape shape1"></div>
+<div class="background-shape shape2"></div>
+<div class="card">
+    <h2>ARAKKHA LEARN</h2>
+    <p class="subtitle">LIVE TO LEARN, LEARN TO SHARE</p>
+    <div class="divider">
+        <span>🎓</span>
+    </div>
+        <form method="POST">
+        {% csrf_token %}
+        <label>Invitation Code</label>
+        <div class="input-group">
+            <input type="text" name="code" placeholder="Enter your invitation code" required>
+        </div>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        <button type="submit">
+            Continue Registration →
+        </button>
+        <div class="login-link">
+        Already have an account?
+        <a href="{% url 'login' %}">Log in</a>
+    </div>
+    </form>
+    <div class="footer">
+        ℹ Need help? Contact your school administrator.
+    </div>
+</div>
+</body>
+</html>

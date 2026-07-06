@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS Portal | Register</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css/' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="card">
+        <h2>ARAKKHA LEARN</h2>
+
+        <div class="divider">
+            <span>👤</span>
+        </div>
+
+        <h3>Create Your Account</h3>
+        {% if messages %}
+        <div class="card-messages">
+            {% for message in messages %}
+            <div class="card-alert card-alert-{{ message.tags }}">
+
+                <span class="card-alert-icon">
+                    {% if message.tags == "success" %}
+                    ✔
+                    {% elif message.tags == "error" %}
+
+                    {% elif message.tags == "warning" %}
+
+                    {% else %}
+
+                    {% endif %}
+                </span>
+
+                <span class="card-alert-text">
+                    {{ message }}
+                </span>
+
+                <span class="card-alert-close" onclick="this.parentElement.remove()">×</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>အီးမေးလ်(Email Address)</label>
+            <input type="email" name="email" placeholder="အီးမေးလ် ရိုက်ထည့်ပါ" required>
+
+            <label>အသုံးပြုသူနာမေ(Username)</label>
+            <input type="text" name="username" placeholder="အသုံးပြုသူနာမေ ရိုက်ထည့်ပါ" required>
+
+            <label>စကားဝှက်(Password)</label>
+            <div class="password-group">
+                <input type="password" id="password" name="password" placeholder="စကားဝှက် ရိုက်ထည့်ပါ" required>
+                <span class="toggle-password" onclick="togglePassword('password', this)">👁</span>
+            </div>
+
+            <label>အတည်ပြု စကားဝှက်(Confirm Password)</label>
+            <div class="password-group">
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="စကားဝှက် အတည်ပြုပါ"
+                    required>
+                <span class="toggle-password" onclick="togglePassword('confirm_password', this)">👁</span>
+            </div>
+
+            <!--INVITATION INFO -->
+            <div class="info-box">
+                <div class="info-item">
+                    <span>Invitation Code</span>
+                    <strong>{{ invite.code }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>Role</span>
+                    <strong>{{ invite.get_role_display }}</strong>
+                </div>
+            </div>
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="{% url 'login' %}">Log in</a>
+        </div>
+
+        <div class="footer">
+            ℹ Need help? Contact your school administrator.
+        </div>
+    </div>
+
+    <!-- 🔥 SCRIPTS -->
+    <script>
+
+        // Password toggle
+        function togglePassword(id, element) {
+            const input = document.getElementById(id);
+
+            if (input.type === "password") {
+                input.type = "text";
+                element.textContent = "🙈";
+            } else {
+                input.type = "password";
+                element.textContent = "👁";
+            }
+        }
+
+        // Auto remove toasts after 3 seconds
+        setTimeout(() => {
+            document.querySelectorAll('.toast').forEach(toast => {
+                toast.style.opacity = "0";
+                toast.style.transform = "translateX(100%)";
+
+                setTimeout(() => toast.remove(), 300);
+            });
+        }, 3000);
+
+    </script>
+
+</body>
+
+</html>

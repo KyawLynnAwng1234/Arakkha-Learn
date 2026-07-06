@@ -10,17 +10,40 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                <div class="alert-icon">
+                    {% if message.tags == "success" %}
+                        <i class="fa-solid fa-circle-check"></i>
+                    {% elif message.tags == "error" %}
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    {% elif message.tags == "warning" %}
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    {% else %}
+                        <i class="fa-solid fa-circle-info"></i>
+                    {% endif %}
+                </div>
+                <div class="alert-content">
+                    {{ message }}
+                </div>
+                <button class="alert-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="login-container">
         <div class="logo-header">
             <img src="{% static 'images/logo1.png' %}" alt="Centralized Education Logo" class="logo-img">
         </div>
-        <form class="login-form" method="POST" action="{% url 'login_page' %}">
+        <form class="login-form" method="POST" action="{% url 'login' %}">
             {% csrf_token %}    
             <div class="form-group">
-                <label for="username">အသုံးပြုရေလူ နာမေ (USER NAME)</label>
+                <label for="username">အီးမေးလ် (EMAIL)</label>
                 <div class="input-wrapper">
                     <i class="fa-regular fa-user input-icon"></i>
-                    <input type="text" id="username" name="username" placeholder="နာမေရိုက်ထည့်ပါ" required>
+                    <input type="email" id="username" name="email" placeholder="အီးမေးလ်ရိုက်ထည့်ပါ" required>
                 </div>
             </div>
             <div class="form-group">
@@ -39,21 +62,17 @@
                 </label>
                 <a href="#" class="forgot-link">Forgot Password?</a>
             </div>
-
             <button type="submit" class="btn-submit">
                 လော့ဂ်အင် <span class="en-text">SIGN IN</span>
             </button>
-
             <div class="divider"><span>OR</span></div>
-
             <button type="button" class="btn-google">
                 <img src="{% static 'images/google.jpg' %}" alt="Google Icon" width="18">
                 Sign in with Google
             </button>
         </form>
-
         <div class="form-footer">
-            Don't have an account?<a href="#">Create Account</a>
+            Don't have an account?<a href="{% url 'reference_code' %}">Create Account</a>
         </div>
     </div>
     <script src="{% static 'javascript/script.js' %}"></script>

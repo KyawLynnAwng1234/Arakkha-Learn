@@ -470,3 +470,94 @@ table td {
 .menu-item.logout-item:hover i {
     color: #E53E3E !important;
 }
+
+/* messages css */
+/*=========================
+    Django Messages
+==========================*/
+
+.message-container{
+    margin-bottom:25px;
+}
+
+.alert{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:18px 20px;
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    font-size:15px;
+    font-weight:500;
+
+    animation:slideDown .4s ease;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.alert-icon{
+    font-size:22px;
+    margin-right:15px;
+}
+
+.alert-content{
+    flex:1;
+}
+
+.alert-close{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:18px;
+    color:inherit;
+}
+
+/* Success */
+
+.alert-success{
+    background:#ecfdf5;
+    color:#047857;
+    border-left:6px solid #10b981;
+}
+
+/* Error */
+
+.alert-error{
+    background:#fef2f2;
+    color:#b91c1c;
+    border-left:6px solid #ef4444;
+}
+
+/* Warning */
+
+.alert-warning{
+    background:#fffbeb;
+    color:#b45309;
+    border-left:6px solid #f59e0b;
+}
+
+/* Info */
+
+.alert-info{
+    background:#eff6ff;
+    color:#1d4ed8;
+    border-left:6px solid #3b82f6;
+}
+
+/* Animation */
+
+@keyframes slideDown{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
